@@ -14,14 +14,14 @@ public class Competition {
 	}
 	
 	public void playCompetition(List<Team> competitionList) {
-		// Competition is only possible with even number of teams that has to be a multiple of 8.
+		// Competition is only possible with even number of teams that has to be a multiple of 8. (starting at 4, 8, 16, 24, 32 etc)
+		// No robin round implemented for uneven number of teams...
 		
 		// Sort teams based on random ID number first
 		sortTeams(competitionList);
-		// Print all participating teams
 		printTeams(competitionList);
 		
-		// Keep starting new rounds until 1 team is left
+		// Keep re-starting new rounds until 1 team is left
 		do {
 			if (competitionList.toArray().length == 4) {
 				System.out.println("Four teams left. Time for the SEMI FINALS...");
@@ -33,12 +33,14 @@ public class Competition {
 			competitionRound(competitionList);
 		} while (competitionList.toArray().length > 1);
 		
+		// Winning team is last team left in the list.
 		Team winningTeam = competitionList.get(0);
 		System.out.println("The competition is over. The " + winningTeam.getTeamName().toUpperCase() + " HAVE WON! \nThey will be celebrating with their "
 								   + winningTeam.getSponsor() + ", a party providing by their " + winningTeam.getSource() + "!!!");
 	}
 	
 	public List<Team> competitionRound(List<Team> competitionList) {
+		// Create array for match team input
 		Team[] teamArray = competitionList.toArray(new Team[competitionList.size()]);
 		// Empty current competition list to add only winning teams
 		competitionList.clear();
@@ -51,7 +53,7 @@ public class Competition {
 		// Play number of matches equal to half the number of teams
 		for (int i = 0; i < (teamArray.length / 2); i++) {
 			// Matches are between teams with half the list length in between,
-			// e.g. team 1 vs team 5, team 2 vs team 6, team 3 vs team 7 etc
+			// e.g. for list of 8 teams, matches are team 1 vs team 5, team 2 vs team 6, team 3 vs team 7, team 4 vs 8
 			Team tempTeamA = teamArray[i];
 			Team tempTeamB = teamArray[i + (teamArray.length / 2)];
 			// add winning teams back to the competition list

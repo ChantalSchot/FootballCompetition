@@ -20,31 +20,15 @@ public class AmateurTeam extends Team {
 		return minGoalChance;
 	}
 	
-	public void setMinGoalChance(double minGoalChance) {
-		this.minGoalChance = minGoalChance;
-	}
-	
 	public double getMaxGoalChance() {
 		return maxGoalChance;
-	}
-	
-	public void setMaxGoalChance(double maxGoalChance) {
-		this.maxGoalChance = maxGoalChance;
 	}
 	
 	public double getMinPenaltyChance() {
 		return minPenaltyChance;
 	}
 	
-	public void setMinPenaltyChance(double minPenaltyChance) {
-		this.minPenaltyChance = minPenaltyChance;
-	}
-	
 	public double getMaxPenaltyChance() {
 		return maxPenaltyChance;
-	}
-	
-	public void setMaxPenaltyChance(double maxPenaltyChance) {
-		this.maxPenaltyChance = maxPenaltyChance;
 	}
 }
